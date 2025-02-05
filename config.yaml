@@ -1,0 +1,60 @@
+optimized: 
+  learning_rate_exp: 
+    - float
+    - -4
+    - -2
+  learning_rate_exp_l:
+    - float
+    - -4
+    - -1
+  noise_dim:
+    - int
+    - 95
+    - 110
+
+data:
+  dataset: cifar10
+  task: conditional_generate # generate for GAN and conditional_generate for CGAN
+  scaler: "01"
+  batch_size: 64
+  shuffle_train: True
+  # augmentation:
+  #   - Resize:
+  #       - 64
+    
+study:  
+  number_of_trials: 20
+  direction: minimize
+  optimization_target: GenLoss
+  study_name: Conditional_GAN # GAN for normal GAN and Conditional_GAN for CGAN
+
+network:
+  hidden_channels: 64
+  final_layer: 'nlrl' # only 'linear', or 'nlrl' and this is about choosing the discriminator
+
+learning:
+  num_epochs: 30
+  testevery: 1
+  criterion: BCELoss
+  model: 'CGAN' # CGAN or GAN
+  threshold: 0.5
+  layer: 'nlrl'
+  classification_criterion: CrossEntropyLoss # Not used
+
+classifier_nlrl: # make no changes
+  filter_growth_rate: 2
+  dropout_rate: 0.2
+  final_channel: 12
+  activation_function: RReLU
+  initial_out_channels: 32
+  final_layer: 'nlrl'
+  num_blocks: 7
+
+classifier_linear: # make no changes
+  filter_growth_rate: 2
+  dropout_rate: 0.2
+  final_channel: 12
+  activation_function: RReLU
+  initial_out_channels: 32
+  final_layer: 'linear'
+  num_blocks: 7

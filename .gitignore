@@ -1,0 +1,11 @@
+.spyproject
+*pycache*
+*.png
+data
+00_Results
+Examples
+dummy_main.py
+dummy_run.py
+dummy_config.yaml
+00_Runs
+untitled0.py

@@ -1,0 +1,42 @@
+data:
+  dataset: cifar10
+  task: conditional_generate # generate for GAN and conditional_generate for CGAN
+  scaler: "01"
+  batch_size: 64
+  shuffle_train: True
+    
+network:
+  hidden_channels: 64
+  final_layer: 'linear' # only 'linear', or 'nlrl' and this is about choosing the discriminator
+
+learning:
+  num_epochs: 40
+  testevery: 1
+  criterion: BCELoss
+  model: 'CGAN' # CGAN or GAN
+  threshold: 0.5
+  layer: 'linear'
+  learning_rate_exp: -3.676747956104475
+  learning_rate_exp_l: -1.054971790328493
+  noise_dim: 110
+  cnn_feed_back: "Yes"
+  classification_criterion: CrossEntropyLoss
+
+classifier_nlrl: # make no changes
+  filter_growth_rate: 2
+  dropout_rate: 0.2
+  final_channel: 12
+  activation_function: RReLU
+  initial_out_channels: 32
+  final_layer: 'nlrl'
+  num_blocks: 7
+
+classifier_linear: # make no changes
+  filter_growth_rate: 2
+  dropout_rate: 0.2
+  final_channel: 12
+  activation_function: RReLU
+  initial_out_channels: 32
+  final_layer: 'linear'
+  num_blocks: 7
+

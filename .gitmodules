@@ -1,0 +1,3 @@
+[submodule "ccb_dl-ce"]
+	path = ccb_dl-ce
+	url = http://172.19.10.25/CCB_DL/ccb_dl-ce.git
