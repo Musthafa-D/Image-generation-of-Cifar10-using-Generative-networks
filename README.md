@@ -7,7 +7,7 @@ Generative models (e.g., GANs) learn to produce realistic images by modeling the
 
 CIFAR-10 is a standard benchmark dataset containing 60,000 32×32 RGB images across 10 classes.
 
-This repository provides scripts for training generative models and visualizing the generated images.
+This repository provides scripts for training generative models, visualizing the generated images and interpretability methods of the generative models.
 
 ---
 
@@ -28,5 +28,7 @@ In this project, both gans and conditional gans are implemented.
 - Training pipeline
 - Image generation and visualization  
 - Comparison between real and generated samples
+- Interpretability of the trained generative models.
 
 ---
+
